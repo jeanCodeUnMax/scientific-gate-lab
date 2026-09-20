@@ -10,7 +10,7 @@
       "pass": true,
       "exit_code": 0,
       "expected_code": 0,
-      "output": "A  .githooks/pre-commit\nA  .githooks/pre-push\nA  .gitignore\nA  .watchdog/policy.json\nA  AGENTS.md\nA  README.md\nA  evidence/benchmark_gate_001.json\nA  scripts/assistant_terminal.py\nA  scripts/install_watchdog.py\nA  scripts/state_gate.py\nAM scripts/watchdog.py\nAM tests/benchmark_gate.py\nA  tests/test_watchdog_lab.py\nSTATE  : ALLOW\nCOMMAND: git status --short"
+      "output": "M AGENTS.md\nSTATE  : ALLOW\nCOMMAND: git status --short"
     },
     {
       "name": "B02_NO_VERIFY_DENY",
@@ -248,7 +248,7 @@
       "pass": true,
       "exit_code": 0,
       "expected_code": 0,
-      "output": "Initialized empty Git repository in C:/Users/webma/AppData/Local/Temp/scientific-gate-b17-tfxhs_li/.git/"
+      "output": "Initialized empty Git repository in C:/Users/webma/AppData/Local/Temp/scientific-gate-b17-fnd8wpb5/.git/"
     },
     {
       "name": "B17B_FEATURE_BRANCH_CREATED",
@@ -276,7 +276,7 @@
       "pass": true,
       "exit_code": 0,
       "expected_code": 0,
-      "output": "WATCHDOG\n====================================================================\npolicy                 PASS  C:\\Users\\webma\\AppData\\Local\\Temp\\scientific-gate-b17-tfxhs_li\\.watchdog\\policy.json\nactive_task_file       PASS  C:\\Users\\webma\\AppData\\Local\\Temp\\scientific-gate-b17-tfxhs_li\\.watchdog\\active_task.json\none_active_task        PASS  B17-INITIAL-COMMIT\ngit_branch             PASS  feat/b17-unborn-head\ngit_head               PASS  HEAD_UNBORN_INITIAL_COMMIT\nstaged_secrets         PASS  none\nstaged_scope           PASS  in scope\nstatic_checks          PASS  \ntests                  PASS  \n--------------------------------------------------------------------\nDECISION: ALLOW\nGit operation ALLOWED."
+      "output": "WATCHDOG\n====================================================================\npolicy                 PASS  C:\\Users\\webma\\AppData\\Local\\Temp\\scientific-gate-b17-fnd8wpb5\\.watchdog\\policy.json\nactive_task_file       PASS  C:\\Users\\webma\\AppData\\Local\\Temp\\scientific-gate-b17-fnd8wpb5\\.watchdog\\active_task.json\none_active_task        PASS  B17-INITIAL-COMMIT\ngit_branch             PASS  feat/b17-unborn-head\ngit_head               PASS  HEAD_UNBORN_INITIAL_COMMIT\nstaged_secrets         PASS  none\nstaged_scope           PASS  in scope\nstatic_checks          PASS  \ntests                  PASS  \n--------------------------------------------------------------------\nDECISION: ALLOW\nGit operation ALLOWED."
     },
     {
       "name": "B17F_WATCHDOG_DOES_NOT_CREATE_COMMIT",
