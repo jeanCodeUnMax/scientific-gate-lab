@@ -59,7 +59,7 @@ Toujours contrôler : `git diff --cached --stat` et `git diff --cached`. Si fich
 `.watchdog/`, `.githooks/`, l'état de la machine (`task_state.json`) et le Terminal Guard sont des ressources critiques. Elles sont strictement protégées contre la falsification par l'agent.
 
 ## 9. CHECKLIST AVANT COMMIT & PUSH
-Le commit est interdit tant que les gates applicables ne sont pas verts (repository, branch, task scope, syntax, tests, evidence, hashes, staged diff, commit auth). Chaque gate retourne exactement `PASS, FAIL, NOT_APPLICABLE, UNKNOWN`. FAIL ou UNKNOWN => STOP.
+Le commit est interdit tant que les gates applicables ne sont pas verts (repository, branch, task scope, syntax, tests, evidence, hashes, staged diff, commit auth). Chaque gate retourne exactement l'un des statuts définis au §5 : `PASS, FAIL, BLOCKED, NOT_APPLICABLE, DEFERRED, ESCALATED, UNKNOWN`. Pour un `HARD_GATE`, appliquer strictement les règles du §5. Pour un gate non critique, `BLOCKED`, `NOT_APPLICABLE` ou `DEFERRED` ne permettent une transition que si le Scientific Gate l'autorise explicitement. `FAIL`, `UNKNOWN` ou `ESCALATED` n'autorisent jamais une progression automatique.
 Un push nécessite : LOCAL_GATES = PASS, COMMIT_SHA = VERIFIED, WORKTREE = UNDERSTOOD.
 Ne jamais déclarer `CI = PASS` tant que la CI distante n'a pas réellement été vérifiée.
 
