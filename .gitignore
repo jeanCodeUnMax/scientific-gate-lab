@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.watchdog/logs/*.jsonl
+
+# Quarantaine et Sécurité (Scientific Gate)
+.quarantine/
+.env
+*.key
+*.pem
+
+# Scientific Gate runtime
+.watchdog/task_state.json
+.watchdog/active_task.json
+.watchdog/logs/
+
+# Local quarantine — may contain IDE/provider configs or credentials
+.quarantine/

@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "protected_branches": ["main", "master"],
+  "forbidden_staged_patterns": [".env", ".pem", ".key", "id_rsa", "id_ed25519"],
+  "required_files": [".watchdog/active_task.json"],
+  "test_command": ["python", "-m", "unittest", "discover", "-s", "tests", "-v"],
+  "static_command": ["python", "-m", "compileall", "-q", "scripts", "tests"]
+}

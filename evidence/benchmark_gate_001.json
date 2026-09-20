@@ -1,0 +1,289 @@
+{
+  "benchmark": "BENCHMARK-GATE-001",
+  "total_assertions": 40,
+  "passed": 40,
+  "failed": 0,
+  "unexpected_allow": [],
+  "results": [
+    {
+      "name": "B01_READONLY_GIT_ALLOW",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "A  .githooks/pre-commit\nA  .githooks/pre-push\nA  .gitignore\nA  .watchdog/policy.json\nA  AGENTS.md\nA  README.md\nA  evidence/benchmark_gate_001.json\nA  scripts/assistant_terminal.py\nA  scripts/install_watchdog.py\nA  scripts/state_gate.py\nAM scripts/watchdog.py\nAM tests/benchmark_gate.py\nA  tests/test_watchdog_lab.py\nSTATE  : ALLOW\nCOMMAND: git status --short"
+    },
+    {
+      "name": "B02_NO_VERIFY_DENY",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE   : ASSISTANT\nSTATE  : DENY\nREASON : Forbidden argument: --no-verify\nACTION : NOT EXECUTED\nNEXT   : PREFLIGHT"
+    },
+    {
+      "name": "B03_DIRECT_COMMIT_DENY",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE   : ASSISTANT\nSTATE  : DENY\nREASON : Direct git command not allowlisted: commit\nACTION : NOT EXECUTED\nNEXT   : PREFLIGHT"
+    },
+    {
+      "name": "B04_GIT_INIT_DENY",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE   : ASSISTANT\nSTATE  : DENY\nREASON : Forbidden git command: init\nACTION : NOT EXECUTED\nNEXT   : PREFLIGHT"
+    },
+    {
+      "name": "B05_GIT_CLEAN_DENY",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE   : ASSISTANT\nSTATE  : DENY\nREASON : Forbidden argument: -fd\nACTION : NOT EXECUTED\nNEXT   : PREFLIGHT"
+    },
+    {
+      "name": "B06_EARLY_COMMIT_DENY",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : DENY: INVALID_TRANSITION expected=PREFLIGHT requested=COMMIT\nNEXT    : PREFLIGHT"
+    },
+    {
+      "name": "B07A_PREFLIGHT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: PREFLIGHT NEXT=EDIT\nNEXT    : EDIT"
+    },
+    {
+      "name": "B07B_EDIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: EDIT NEXT=STATIC\nNEXT    : STATIC"
+    },
+    {
+      "name": "B07C_STATIC_BLOCKED_CONTINUES",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : BLOCKED: STATIC NEXT=TEST\nNEXT    : TEST"
+    },
+    {
+      "name": "B08A_TEST",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: TEST NEXT=EVIDENCE\nNEXT    : EVIDENCE"
+    },
+    {
+      "name": "B08B_EVIDENCE_BLOCKED_DENY",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : DENY: HARD_GATE_CANNOT_BE_SKIPPED step=EVIDENCE\nNEXT    : EVIDENCE"
+    },
+    {
+      "name": "B09A_PREFLIGHT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: PREFLIGHT NEXT=EDIT\nNEXT    : EDIT"
+    },
+    {
+      "name": "B09B_EDIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: EDIT NEXT=STATIC\nNEXT    : STATIC"
+    },
+    {
+      "name": "B09C_STATIC",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: STATIC NEXT=TEST\nNEXT    : TEST"
+    },
+    {
+      "name": "B09D_TEST_FAILURE_RECORDED",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : FAIL: TEST RECORDED reason=pytest failed\nNEXT    : TEST"
+    },
+    {
+      "name": "B10A_PREFLIGHT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: PREFLIGHT NEXT=EDIT\nNEXT    : EDIT"
+    },
+    {
+      "name": "B10B_EDIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: EDIT NEXT=STATIC\nNEXT    : STATIC"
+    },
+    {
+      "name": "B10C_STATIC",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: STATIC NEXT=TEST\nNEXT    : TEST"
+    },
+    {
+      "name": "B10D_SKIP_TEST_TO_STAGE_DENY",
+      "pass": true,
+      "exit_code": 77,
+      "expected_code": 77,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : DENY: INVALID_TRANSITION expected=TEST requested=STAGE\nNEXT    : TEST"
+    },
+    {
+      "name": "B11_FULL_PATH_PREFLIGHT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: PREFLIGHT NEXT=EDIT\nNEXT    : EDIT"
+    },
+    {
+      "name": "B11_FULL_PATH_EDIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: EDIT NEXT=STATIC\nNEXT    : STATIC"
+    },
+    {
+      "name": "B11_FULL_PATH_STATIC",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: STATIC NEXT=TEST\nNEXT    : TEST"
+    },
+    {
+      "name": "B11_FULL_PATH_TEST",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: TEST NEXT=EVIDENCE\nNEXT    : EVIDENCE"
+    },
+    {
+      "name": "B11_FULL_PATH_EVIDENCE",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: EVIDENCE NEXT=STAGE\nNEXT    : STAGE"
+    },
+    {
+      "name": "B11_FULL_PATH_STAGE",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: STAGE NEXT=COMMIT\nNEXT    : COMMIT"
+    },
+    {
+      "name": "B11_FULL_PATH_COMMIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: COMMIT NEXT=VERIFY\nNEXT    : VERIFY"
+    },
+    {
+      "name": "B11_FULL_PATH_VERIFY",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: VERIFY NEXT=DONE\nNEXT    : DONE"
+    },
+    {
+      "name": "B11_FULL_PATH_DONE",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: TASK_COMPLETE\nNEXT    : DONE"
+    },
+    {
+      "name": "B12A_PREFLIGHT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: PREFLIGHT NEXT=EDIT\nNEXT    : EDIT"
+    },
+    {
+      "name": "B12B_SECOND_PROCESS_EXPECTS_EDIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "=== SCIENTIFIC GATE ===\nMODE    : ASSISTANT\nRESULT  : PASS: EDIT NEXT=STATIC\nNEXT    : STATIC"
+    },
+    {
+      "name": "B13_HOOKS_PRESENT",
+      "pass": true,
+      "exit_code": null,
+      "expected_code": null,
+      "output": "D:\\DATA-WEBMAN\\scientific-gate-lab\\.githooks"
+    },
+    {
+      "name": "B14_WATCHDOG_PRESENT",
+      "pass": true,
+      "exit_code": null,
+      "expected_code": null,
+      "output": "D:\\DATA-WEBMAN\\scientific-gate-lab\\.watchdog"
+    },
+    {
+      "name": "B15_TERMINAL_GUARD_PRESENT",
+      "pass": true,
+      "exit_code": null,
+      "expected_code": null,
+      "output": "D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\assistant_terminal.py"
+    },
+    {
+      "name": "B16_CORRUPTED_STATE_FAIL_CLOSED",
+      "pass": true,
+      "exit_code": 1,
+      "expected_code": "non-zero",
+      "output": "Traceback (most recent call last):\n  File \"D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\state_gate.py\", line 64, in load\n    data = json.loads(\n        STATE_FILE.read_text(encoding=\"utf-8\")\n    )\n  File \"C:\\Python314\\Lib\\json\\__init__.py\", line 352, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"C:\\Python314\\Lib\\json\\decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Python314\\Lib\\json\\decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\njson.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\assistant_terminal.py\", line 116, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\assistant_terminal.py\", line 110, in main\n    run_step(args)\n    ~~~~~~~~^^^^^^\n  File \"D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\assistant_terminal.py\", line 72, in run_step\n    g = gate()\n  File \"D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\assistant_terminal.py\", line 31, in gate\n    return Gate()\n  File \"D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\state_gate.py\", line 50, in __init__\n    self.load()\n    ~~~~~~~~~^^\n  File \"D:\\DATA-WEBMAN\\scientific-gate-lab\\scripts\\state_gate.py\", line 84, in load\n    raise RuntimeError(\n        f\"WATCHDOG_STATE_INVALID: {exc}\"\n    )\nRuntimeError: WATCHDOG_STATE_INVALID: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "name": "B17A_TEMP_REPO_INIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "Initialized empty Git repository in C:/Users/webma/AppData/Local/Temp/scientific-gate-b17-tfxhs_li/.git/"
+    },
+    {
+      "name": "B17B_FEATURE_BRANCH_CREATED",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "Switched to a new branch 'feat/b17-unborn-head'"
+    },
+    {
+      "name": "B17C_HEAD_UNBORN_PROVEN",
+      "pass": true,
+      "exit_code": null,
+      "expected_code": null,
+      "output": "rev-parse --verify HEAD exit=128\nrev-list --count --all exit=0\ncommit_count=0"
+    },
+    {
+      "name": "B17D_BOOTSTRAP_STAGED",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": ""
+    },
+    {
+      "name": "B17E_WATCHDOG_ALLOWS_INITIAL_COMMIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "WATCHDOG\n====================================================================\npolicy                 PASS  C:\\Users\\webma\\AppData\\Local\\Temp\\scientific-gate-b17-tfxhs_li\\.watchdog\\policy.json\nactive_task_file       PASS  C:\\Users\\webma\\AppData\\Local\\Temp\\scientific-gate-b17-tfxhs_li\\.watchdog\\active_task.json\none_active_task        PASS  B17-INITIAL-COMMIT\ngit_branch             PASS  feat/b17-unborn-head\ngit_head               PASS  HEAD_UNBORN_INITIAL_COMMIT\nstaged_secrets         PASS  none\nstaged_scope           PASS  in scope\nstatic_checks          PASS  \ntests                  PASS  \n--------------------------------------------------------------------\nDECISION: ALLOW\nGit operation ALLOWED."
+    },
+    {
+      "name": "B17F_WATCHDOG_DOES_NOT_CREATE_COMMIT",
+      "pass": true,
+      "exit_code": 0,
+      "expected_code": 0,
+      "output": "commit_count=0"
+    }
+  ]
+}
